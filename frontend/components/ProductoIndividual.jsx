@@ -33,7 +33,6 @@ const ProductoIndividual = ({ producto }) => {
             <td>{producto.referencia}</td>
             <td>{producto.nombre}</td>
             <td>{producto.precioBase}</td>
-            <td>{producto.precioVenta}</td>
             <td>{producto.imagen}</td>
             <td>{producto.descripcion}</td>
             <td>

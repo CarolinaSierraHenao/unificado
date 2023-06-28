@@ -6,6 +6,8 @@ const app = express()
 app.use(cors())
 //Importar la conexión
 const conexionbd = require('./config/db')
+dotenv.config()
+const PORT = process.env.PORT || 4000
 
 //Importación del archivo de rutas
 const rutaCliente = require('./routes/ClienteRoutes')
@@ -45,5 +47,5 @@ app.get('/', (req, res) => {
 })
 
 app.listen(4000, function(){
-    console.log('El servidor está corriendo correctamente')
+    console.log('El servidor está corriendo correctamente',PORT)
 })

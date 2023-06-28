@@ -7,7 +7,6 @@ const EditarProducto = () => {
     const [referencia, setReferencia] = useState('')
     const [nombre, setNombre] = useState('')
     const [precioBase, setPrecioBase] = useState('')
-    const [precioVenta, setPrecioVenta] = useState('')
     const [imagen, setImagen] = useState('')
     const [descripcion, setDescripcion] = useState('')
 
@@ -23,7 +22,6 @@ const EditarProducto = () => {
                 setReferencia(dataproducto.referencia)
                 setNombre(dataproducto.nombre)
                 setPrecioBase(dataproducto.precioBase)
-                setPrecioVenta(dataproducto.precioVenta)
                 setImagen(dataproducto.imagen)
                 setDescripcion(dataproducto.descripcion)
             })
@@ -40,7 +38,6 @@ const EditarProducto = () => {
             referencia === '' ||
             nombre === '' ||
             precioBase === '' ||
-            precioVenta === '' ||
             imagen === '' ||
             descripcion === ''
         ) {
@@ -52,7 +49,6 @@ const EditarProducto = () => {
             referencia,
             nombre,
             precioBase,
-            precioVenta,
             imagen,
             descripcion
         };
@@ -94,7 +90,7 @@ const EditarProducto = () => {
                                 <p className="text-icon-menu my-0">Usuarios</p>
                             </div>
                         </Link>
-                        <Link className="d-flex justify-content-start py-2 border-bottom border-dark" to="/listaclientes">
+                        <Link className="d-flex justify-content-start py-2 border-bottom border-dark" to="/admin/listaclientes">
                             <div className="d-flex align-items-center">
                                 <i className="icon-menu fa-solid fa-user mx-4" title="Clientes"></i>
                                 <p className="text-icon-menu my-0">Clientes</p>
@@ -118,12 +114,12 @@ const EditarProducto = () => {
                                 <p className="text-icon-menu my-0">Planes de pago</p>
                             </div>
                         </Link>
-                        <Link className="d-flex justify-content-between py-2 border-bottom border-dark" to="listar.html">
+                        {/* <Link className="d-flex justify-content-between py-2 border-bottom border-dark" to="listar.html">
                             <div className="d-flex align-items-center">
                                 <i className="icon-menu fa-solid fa-book-open mx-4" title="Catálogo"></i>
                                 <p className="text-icon-menu my-0">Catálogo de productos</p>
                             </div>
-                        </Link>
+                        </Link> */}
                     </ul>
                 </aside>
                 <main className="d-flex flex-column">
@@ -150,10 +146,6 @@ const EditarProducto = () => {
                                 </div>
                             </div>
                             <div className="contenedores__div2 d-flex flex-column align-items-center me-5 me-sm-0 w-100">
-                                <div className="mb-3 w-100">
-                                    <label className="form-label fw-bold">Precio de Venta</label>
-                                    <input type="number" className="form-control" placeholder="Precio de Venta" required value={precioVenta} onChange={(e) => { setPrecioVenta(e.target.value) }} />
-                                </div>
                                 <div className="mb-3 w-100">
                                     <label className="form-label fw-bold">Imagen</label>
                                     <input type="text" className="form-control" placeholder="Imagen" required value={imagen} onChange={(e) => { setImagen(e.target.value) }} />

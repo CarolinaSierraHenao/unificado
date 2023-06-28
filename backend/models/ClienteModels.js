@@ -10,72 +10,57 @@ const schemaCliente = new Schema({
     cedula: {
         type: Number,
         required: [true, 'Este campo es obligatorio'],
-        trim: true,
-        min: 10,
-        max: 10
+        trim: true
     },
     nombre: {
         type: String,
         required: [true, 'Este campo es obligatorio'],
-        trim: true,
-        max: 30
+        trim: true
     },
     direccion: {
         type: String,
         required: [true, 'Este campo es obligatorio'],
-        trim: true,
-        max: 50
+        trim: true
     },
     telefono: {
         type: Number,
         required: [true, 'Este campo es obligatorio'],
-        trim: true,
-        min: 10,
-        max: 10
+        trim: true
     },
     email: {
         type: String,
         required: [true, 'Este campo es obligatorio'],
-        trim: true,
-        max: 50
+        trim: true
     },
     nombreCodeudor: {
         type: String,
         required: [true, 'Este campo es obligatorio'],
-        trim: true,
-        max: 30
+        trim: true
     },
     cedulaCodeudor: {
         type: Number,
         required: [true, 'Este campo es obligatorio'],
-        trim: true,
-        min: 10,
-        max: 10
+        trim: true
     },
     telefonoCodeudor: {
         type: Number,
         required: [true, 'Este campo es obligatorio'],
-        trim: true,
-        min: 10,
-        max: 10
+        trim: true
     },
     direccionCodeudor: {
         type: String,
         required: [true, 'Este campo es obligatorio'],
-        trim: true,
-        max: 50
+        trim: true
     },
     grupo: {
         type: String,
         required: [true, 'Este campo es obligatorio'],
-        trim: true,
-        max: 30
+        trim: true
     },
     estado: {
         type: String,
         required: [true, 'Este campo es obligatorio'],
-        trim: true,
-        max: 8
+        trim: true
     }
 })
 

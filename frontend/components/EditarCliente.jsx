@@ -32,6 +32,21 @@ const EditarCliente = () => {
     }
   }
 
+  function validarTexto(event) {
+    const charCode = event.keyCode || event.which;
+    const char = String.fromCharCode(charCode);
+
+    // Permitir la tecla de retroceso (backspace) y la tecla de suprimir (delete)
+    if (charCode === 8 || charCode === 46) {
+      return;
+    }
+
+    // Verificar si el carácter es un carácter especial
+    if (/[^A-Za-z0-9\s]/.test(char)) {
+      event.preventDefault();
+    }
+  }
+
   useEffect(() => {
     fetch(`http://localhost:4000/api/cliente/obtenerdatacliente/${id}`)
       .then((res) => {
@@ -131,7 +146,7 @@ const EditarCliente = () => {
                 <p className="text-icon-menu my-0">Usuarios</p>
               </div>
             </Link>
-            <Link className="d-flex justify-content-start py-2 border-bottom border-dark" to="/listaclientes">
+            <Link className="d-flex justify-content-start py-2 border-bottom border-dark" to="/admin/listaclientes">
               <div className="d-flex align-items-center">
                 <i className="icon-menu fa-solid fa-user mx-4" title="Clientes"></i>
                 <p className="text-icon-menu my-0">Clientes</p>
@@ -155,12 +170,12 @@ const EditarCliente = () => {
                 <p className="text-icon-menu my-0">Planes de pago</p>
               </div>
             </Link>
-            <Link className="d-flex justify-content-between py-2 border-bottom border-dark" to="listarClientes.html">
+            {/* <Link className="d-flex justify-content-between py-2 border-bottom border-dark" to="listarClientes.html">
               <div className="d-flex align-items-center">
                 <i className="icon-menu fa-solid fa-book-open mx-4" title="Planes de pago"></i>
                 <p className="text-icon-menu my-0">Catálogo de productos</p>
               </div>
-            </Link>
+            </Link> */}
           </ul>
         </aside>
         <main className="d-flex flex-column">
@@ -175,11 +190,11 @@ const EditarCliente = () => {
               <div className="contenedores__div1 d-flex flex-column align-items-center ms-sm-0 w-100">
                 <div className="mb-3 w-100">
                   <label className="form-label fw-bold">Cédula</label>
-                  <input type="text" className="form-control" id="cedula" placeholder="Cédula" minLength="10" maxLength="10" required onKeyDown={validarNumericos} value={cedula} onChange={(e) => { setCedula(e.target.value) }} />
+                  <input type="text" className="form-control" id="cedula" placeholder="Cédula" required onKeyDown={validarNumericos} value={cedula} onChange={(e) => { setCedula(e.target.value) }} />
                 </div>
                 <div className="mb-3 w-100">
                   <label className="form-label fw-bold">Nombre</label>
-                  <input type="text" className="form-control" id="nombre" placeholder="Nombre" required value={nombre} onChange={(e) => { setNombre(e.target.value) }} />
+                  <input type="text" className="form-control" id="nombre" placeholder="Nombre" required onKeyDown={validarTexto} value={nombre} onChange={(e) => { setNombre(e.target.value) }} />
                 </div>
                 <div className="mb-3 w-100">
                   <label className="form-label fw-bold">Dirección</label>
@@ -187,7 +202,7 @@ const EditarCliente = () => {
                 </div>
                 <div className="mb-3 w-100">
                   <label className="form-label fw-bold">Teléfono</label>
-                  <input type="text" className="form-control" placeholder="Teléfono" minLength="10" maxLength="10" required onKeyDown={validarNumericos} value={telefono} onChange={(e) => { setTelefono(e.target.value) }} />
+                  <input type="text" className="form-control" placeholder="Teléfono" required onKeyDown={validarNumericos} value={telefono} onChange={(e) => { setTelefono(e.target.value) }} />
                 </div>
                 <div className="mb-3 w-100">
                   <label className="form-label fw-bold">Email</label>
@@ -195,17 +210,17 @@ const EditarCliente = () => {
                 </div>
                 <div className="mb-3 w-100">
                   <label className="form-label fw-bold">Nombre Codeudor</label>
-                  <input type="text" className="form-control" placeholder="Nombre Codeudor" required value={nombreCodeudor} onChange={(e) => { setNombreCodeudor(e.target.value) }} />
+                  <input type="text" className="form-control" placeholder="Nombre Codeudor" required onKeyDown={validarTexto} value={nombreCodeudor} onChange={(e) => { setNombreCodeudor(e.target.value) }} />
                 </div>
               </div>
               <div className="contenedores__div2 d-flex flex-column align-items-center me-5 me-sm-0 w-100">
                 <div className="mb-3 w-100">
                   <label className="form-label fw-bold">Cédula Codeudor</label>
-                  <input type="text" className="form-control" placeholder="Cédula Codeudor" minLength="10" maxLength="10" required onKeyDown={validarNumericos} value={cedulaCodeudor} onChange={(e) => { setCedulaCodeudor(e.target.value) }} />
+                  <input type="text" className="form-control" placeholder="Cédula Codeudor" required onKeyDown={validarNumericos} value={cedulaCodeudor} onChange={(e) => { setCedulaCodeudor(e.target.value) }} />
                 </div>
                 <div className="mb-3 w-100">
                   <label className="form-label fw-bold">Teléfono Codeudor</label>
-                  <input type="text" className="form-control" placeholder="Teléfono Codeudor" minLength="10" maxLength="10" required onKeyDown={validarNumericos} value={telefonoCodeudor} onChange={(e) => { setTelefonoCodeudor(e.target.value) }} />
+                  <input type="text" className="form-control" placeholder="Teléfono Codeudor" required onKeyDown={validarNumericos} value={telefonoCodeudor} onChange={(e) => { setTelefonoCodeudor(e.target.value) }} />
                 </div>
                 <div className="mb-3 w-100">
                   <label className="form-label fw-bold">Dirección Codeudor</label>
@@ -213,7 +228,7 @@ const EditarCliente = () => {
                 </div>
                 <div className="mb-3 w-100">
                   <label className="form-label fw-bold">Grupo</label>
-                  <input type="text" className="form-control" placeholder="Grupo" required value={grupo} onChange={(e) => { setGrupo(e.target.value) }} />
+                  <input type="text" className="form-control" placeholder="Grupo" required onKeyDown={validarTexto} value={grupo} onChange={(e) => { setGrupo(e.target.value) }} />
                 </div>
                 <div className="mb-3 w-100">
                   <label className="form-label fw-bold">Estado</label>

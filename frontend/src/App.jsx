@@ -29,7 +29,7 @@ function App() {
       <AuthProvider>
         <Routes>
           {/* Clientes */}
-          <Route path="/listaclientes" element={<ListarClientes />}></Route>
+          {/* <Route path="/listaclientes" element={<ListarClientes />}></Route> */}
           <Route path="/crearcliente" element={<FormCrearCliente />}></Route>
           <Route path="/editarcliente/:id" element={<FormEditarCliente />}></Route>
           {/* Planes de pago */}
@@ -55,6 +55,7 @@ function App() {
           <Route path='/admin' element={<AdminLayout />}>
             <Route index element={<Admin />} />
             <Route path='registrar' element={<Registrar />} />
+            <Route path="listaclientes" element={<ListarClientes />}></Route>
           </Route>
         </Routes>
       </AuthProvider>

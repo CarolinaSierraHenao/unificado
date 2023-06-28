@@ -44,16 +44,16 @@ const ClienteIndividual = ({ cliente }) => {
       <td>{cliente.grupo}</td>
       <td>{cliente.estado}</td>
       <td>
-      <Link to={`/editarcliente/${cliente._id}`}>
-        <img src={"https://cdn-icons-png.flaticon.com/128/565/565722.png"} alt="icono_editar" width="25px" height="25px"/>
+        <Link to={`/editarcliente/${cliente._id}`}>
+          <img src={"https://cdn-icons-png.flaticon.com/128/565/565722.png"} alt="icono_editar" width="25px" height="25px" />
         </Link>
       </td>
       <td>
-      <Link>
-        <button onClick={eliminarCliente}>
-        <img src={"https://cdn-icons-png.flaticon.com/128/565/565491.png"} alt="icono_editar" width="25px" height="25px"/>
-        </button>
-      </Link>
+        <Link>
+          <button onClick={eliminarCliente}>
+            <img src={"https://cdn-icons-png.flaticon.com/128/565/565491.png"} alt="icono_editar" width="25px" height="25px" />
+          </button>
+        </Link>
       </td>
     </tr>
   );

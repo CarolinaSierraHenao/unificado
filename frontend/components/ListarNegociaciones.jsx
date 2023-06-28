@@ -69,7 +69,7 @@ const ListarNegociaciones = () => {
                             </div>
                         </Link>
 
-                        <Link className="d-flex justify-content-start py-2 border-bottom border-dark" to="/listaclientes">
+                        <Link className="d-flex justify-content-start py-2 border-bottom border-dark" to="/admin/listaclientes">
                             <div className="d-flex align-items-center">
                                 <i className="icon-menu fa-solid fa-user mx-4" title="Clientes"></i>
                                 <p className="text-icon-menu my-0">Clientes</p>
@@ -97,12 +97,12 @@ const ListarNegociaciones = () => {
                             </div>
                         </Link>
 
-                        <Link className="d-flex justify-content-between py-2 border-bottom border-dark" to="listarVentas.html">
+                        {/* <Link className="d-flex justify-content-between py-2 border-bottom border-dark" to="listarVentas.html">
                             <div className="d-flex align-items-center">
                                 <i className="icon-menu fa-solid fa-book-open mx-4" title="Catálogo"></i>
                                 <p className="text-icon-menu my-0">Catálogo de productos</p>
                             </div>
-                        </Link>
+                        </Link> */}
                     </ul>
                 </aside>
 

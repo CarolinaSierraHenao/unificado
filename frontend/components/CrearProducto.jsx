@@ -6,9 +6,23 @@ const CrearProducto = () => {
     const [referencia, setReferencia] = useState('')
     const [nombre, setNombre] = useState('')
     const [precioBase, setPrecioBase] = useState('')
-    const [precioVenta, setPrecioVenta] = useState('')
     const [imagen, setImagen] = useState('')
     const [descripcion, setDescripcion] = useState('')
+
+    function validarTexto(event) {
+        const charCode = event.keyCode || event.which;
+        const char = String.fromCharCode(charCode);
+
+        // Permitir la tecla de retroceso (backspace) y la tecla de suprimir (delete)
+        if (charCode === 8 || charCode === 46) {
+            return;
+        }
+
+        // Verificar si el carácter es un carácter especial
+        if (/[^A-Za-z0-9\s]/.test(char)) {
+            event.preventDefault();
+        }
+    }
 
     const agregarProducto = async () => {
 
@@ -17,7 +31,6 @@ const CrearProducto = () => {
             referencia === '' ||
             nombre === '' ||
             precioBase === '' ||
-            precioVenta === '' ||
             imagen === '' ||
             descripcion === ''
         ) {
@@ -29,7 +42,6 @@ const CrearProducto = () => {
             referencia,
             nombre,
             precioBase,
-            precioVenta,
             imagen,
             descripcion
         };
@@ -72,7 +84,7 @@ const CrearProducto = () => {
                                 <p className="text-icon-menu my-0">Usuarios</p>
                             </div>
                         </Link>
-                        <Link className="d-flex justify-content-start py-2 border-bottom border-dark" to="/listaclientes">
+                        <Link className="d-flex justify-content-start py-2 border-bottom border-dark" to="/admin/listaclientes">
                             <div className="d-flex align-items-center">
                                 <i className="icon-menu fa-solid fa-user mx-4" title="Clientes"></i>
                                 <p className="text-icon-menu my-0">Clientes</p>
@@ -96,12 +108,12 @@ const CrearProducto = () => {
                                 <p className="text-icon-menu my-0">Planes de pago</p>
                             </div>
                         </Link>
-                        <Link className="d-flex justify-content-between py-2 border-bottom border-dark" to="listar.html">
+                        {/* <Link className="d-flex justify-content-between py-2 border-bottom border-dark" to="listar.html">
                             <div className="d-flex align-items-center">
                                 <i className="icon-menu fa-solid fa-book-open mx-4" title="Catálogo"></i>
                                 <p className="text-icon-menu my-0">Catálogo de productos</p>
                             </div>
-                        </Link>
+                        </Link> */}
                     </ul>
                 </aside>
                 <main className="d-flex flex-column">
@@ -116,29 +128,25 @@ const CrearProducto = () => {
                             <div className="contenedores__div1 d-flex flex-column align-items-center ms-sm-0 w-100">
                                 <div className="mb-3 w-100">
                                     <label className="form-label fw-bold">Referencia</label>
-                                    <input type="text" className="form-control" placeholder="Referencia" required value={referencia} onChange={(e) => { setReferencia(e.target.value) }} />
+                                    <input type="text" className="form-control" placeholder="Referencia" required onKeyDown={validarTexto} value={referencia} onChange={(e) => { setReferencia(e.target.value) }} />
                                 </div>
                                 <div className="mb-3 w-100">
                                     <label className="form-label fw-bold">Nombre</label>
-                                    <input type="text" className="form-control" id="nombre" aria-describedby="emailHelp" placeholder="Nombre" required value={nombre} onChange={(e) => { setNombre(e.target.value) }} />
+                                    <input type="text" className="form-control" id="nombre" placeholder="Nombre" required onKeyDown={validarTexto} value={nombre} onChange={(e) => { setNombre(e.target.value) }} />
                                 </div>
                                 <div className="mb-3 w-100">
                                     <label className="form-label fw-bold">Precio base</label>
-                                    <input type="number" className="form-control" placeholder="Precio base" required value={precioBase} onChange={(e) => { setPrecioBase(e.target.value) }} />
+                                    <input type="text" className="form-control" placeholder="Precio base" required value={precioBase} onChange={(e) => { setPrecioBase(e.target.value) }} />
                                 </div>
                             </div>
                             <div className="contenedores__div2 d-flex flex-column align-items-center me-5 me-sm-0 w-100">
-                                <div className="mb-3 w-100">
-                                    <label className="form-label fw-bold">Precio de Venta</label>
-                                    <input type="number" className="form-control" placeholder="Precio de Venta" required value={precioVenta} onChange={(e) => { setPrecioVenta(e.target.value) }} />
-                                </div>
                                 <div className="mb-3 w-100">
                                     <label className="form-label fw-bold">Imagen</label>
                                     <input type="text" className="form-control" placeholder="Imagen" required value={imagen} onChange={(e) => { setImagen(e.target.value) }} />
                                 </div>
                                 <div className="mb-3 w-100">
                                     <label className="form-label fw-bold">Descripción</label>
-                                    <input type="text" className="form-control" placeholder="Descripción" required value={descripcion} onChange={(e) => { setDescripcion(e.target.value) }} />
+                                    <input type="text" className="form-control" placeholder="Descripción" required onKeyDown={validarTexto} value={descripcion} onChange={(e) => { setDescripcion(e.target.value) }} />
                                 </div>
                             </div>
 

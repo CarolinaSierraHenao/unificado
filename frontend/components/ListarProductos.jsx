@@ -33,7 +33,6 @@ const ListarProductos = () => {
         return (
             producto.nombre && producto.nombre.toLowerCase().includes(busqueda.toLowerCase()) ||
             producto.precioBase && producto.precioBase.toString().includes(busqueda) ||
-            producto.precioVenta && producto.precioVenta.toString().includes(busqueda) ||
             producto.referencia && producto.referencia.toLowerCase().includes(busqueda.toLowerCase())
         );
     });
@@ -63,7 +62,7 @@ const ListarProductos = () => {
                             </div>
                         </Link>
 
-                        <Link className="d-flex justify-content-start py-2 border-bottom border-dark" to="/listaclientes">
+                        <Link className="d-flex justify-content-start py-2 border-bottom border-dark" to="/admin/listaclientes">
                             <div className="d-flex align-items-center">
                                 <i className="icon-menu fa-solid fa-user mx-4" title="Clientes"></i>
                                 <p className="text-icon-menu my-0">Clientes</p>
@@ -91,12 +90,12 @@ const ListarProductos = () => {
                             </div>
                         </Link>
 
-                        <Link className="d-flex justify-content-between py-2 border-bottom border-dark" to="listar.html">
+                        {/* <Link className="d-flex justify-content-between py-2 border-bottom border-dark" to="listar.html">
                             <div className="d-flex align-items-center">
                                 <i className="icon-menu fa-solid fa-book-open mx-4" title="Catálogo"></i>
                                 <p className="text-icon-menu my-0">Catálogo de productos</p>
                             </div>
-                        </Link>
+                        </Link> */}
                     </ul>
                 </aside>
 
@@ -126,7 +125,6 @@ const ListarProductos = () => {
                                     <th scope="col">Referencia</th>
                                     <th scope="col">Nombre</th>
                                     <th scope="col">Precio Base</th>
-                                    <th scope="col">Precio de venta</th>
                                     <th scope="col">Imagen</th>
                                     <th scope="col">Descripción</th>
                                     <th scope="col">Editar</th>

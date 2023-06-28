@@ -22,11 +22,7 @@ const schemaProducto = new Schema({
         required: [true, 'Este campo es obligatorio'],
         trim: true
     },
-    precioVenta: {
-        type: Number,
-        required: [true, 'Este campo es obligatorio'],
-        trim: true
-    },
+    
     imagen: {
         type: String,
         required: [true, 'Este campo es obligatorio'],
